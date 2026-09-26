@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fantômes — Débusque les abonnements qu'on paie sans s'en servir</title>
+<meta name="description" content="Dépose ton relevé bancaire. On te montre chaque prélèvement oublié, son coût réel sur l'année, et la lettre pour y mettre fin.">
+
+<meta property="og:title" content="Fantômes — Débusque les abonnements qu'on paie sans s'en servir">
+<meta property="og:description" content="Dépose ton relevé bancaire. On te montre chaque prélèvement oublié, son coût réel sur l'année, et la lettre pour y mettre fin.">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Work+Sans:wght@400;500&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --paper:#EFEAE0;
+    --ink:#241F1B;
+    --carbon:#A63D2F;
+    --ledger-green:#5E6B58;
+    --line:#D9D2C3;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Work Sans',system-ui,sans-serif;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{
+    max-width:520px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+  header.top{
+    padding:28px 0 0;
+  }
+  .mark{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:20px;
+    letter-spacing:-0.01em;
+  }
+
+  .hero{
+    padding:36px 0 20px;
+  }
+  .ledger-line{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    border-bottom:1px solid var(--line);
+    padding:10px 0;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:14px;
+    color:#6b645a;
+  }
+  .ledger-line .amt{ color:var(--carbon); }
+
+  h1{
+    font-family:'Fraunces',serif;
+    font-weight:500;
+    font-size:clamp(28px, 7vw, 38px);
+    line-height:1.15;
+    letter-spacing:-0.01em;
+    margin:22px 0 14px;
+  }
+  .sub{
+    font-size:17px;
+    color:#4a4339;
+    max-width:46ch;
+  }
+
+  .stat{
+    margin:28px 0;
+    padding:20px 0;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .stat .num{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:40px;
+    color:var(--carbon);
+    font-weight:500;
+  }
+  .stat .label{
+    font-size:14px;
+    color:#6b645a;
+    margin-top:4px;
+  }
+
+  .benefits{
+    margin:32px 0;
+  }
+  .benefit{
+    display:flex;
+    gap:14px;
+    padding:16px 0;
+    border-top:1px solid var(--line);
+  }
+  .benefit:last-child{ border-bottom:1px solid var(--line); }
+  .benefit .b-num{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13px;
+    color:var(--ledger-green);
+    padding-top:2px;
+    min-width:18px;
+  }
+  .benefit h3{
+    font-size:16px;
+    font-weight:500;
+    margin-bottom:3px;
+  }
+  .benefit p{
+    font-size:14px;
+    color:#6b645a;
+  }
+
+  .cta-block{
+    position:sticky;
+    bottom:0;
+    background:linear-gradient(to top, var(--paper) 70%, transparent);
+    padding:24px 0 28px;
+    margin-top:20px;
+  }
+  .cta{
+    display:block;
+    width:100%;
+    text-align:center;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Work Sans',sans-serif;
+    font-size:17px;
+    font-weight:500;
+    padding:18px 20px;
+    border-radius:3px;
+    text-decoration:none;
+    letter-spacing:0.01em;
+  }
+  .cta:active{ opacity:0.85; }
+  .cta-note{
+    text-align:center;
+    font-size:13px;
+    color:#8a8175;
+    margin-top:10px;
+  }
+
+  footer{
+    padding:20px 0 40px;
+    border-top:1px solid var(--line);
+    font-size:12px;
+    color:#8a8175;
+  }
+  footer a{ color:#8a8175; }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="top">
+    <div class="mark">Fantômes</div>
+  </header>
+
+  <section class="hero">
+    <div class="ledger-line">
+      <span>Abonnement streaming — jamais résilié</span>
+      <span class="amt">143,88 €/an</span>
+    </div>
+    <div class="ledger-line">
+      <span>Essai gratuit devenu payant</span>
+      <span class="amt">59,88 €/an</span>
+    </div>
+    <div class="ledger-line">
+      <span>Option activée une fois, oubliée</span>
+      <span class="amt">96,00 €/an</span>
+    </div>
+
+    <h1>Débusque les abonnements qu'on paie sans s'en servir</h1>
+    <p class="sub">Dépose ton relevé bancaire. On repère chaque prélèvement qui tourne en silence, on chiffre ce qu'il te coûte à l'année, et on te donne la lettre pour y mettre fin.</p>
+  </section>
+
+  <section class="stat">
+    <div class="num">299,76 €</div>
+    <div class="label">économie moyenne trouvée par audit</div>
+  </section>
+
+  <section class="benefits">
+    <div class="benefit">
+      <span class="b-num">01</span>
+      <div>
+        <h3>Un montant annuel, pas mensuel</h3>
+        <p>4,99 € par mois paraît toujours petit. Vu sur un an, ça se voit — et ça se compare.</p>
+      </div>
+    </div>
+    <div class="benefit">
+      <span class="b-num">02</span>
+      <div>
+        <h3>La lettre de résiliation, prête</h3>
+        <p>Pour chaque prélèvement repéré, un courrier prêt à envoyer. Plus besoin de chercher comment résilier.</p>
+      </div>
+    </div>
+    <div class="benefit">
+      <span class="b-num">03</span>
+      <div>
+        <h3>Rien à installer, rien à connecter</h3>
+        <p>Un relevé PDF ou CSV suffit. Aucun accès bancaire, aucune carte enregistrée.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-block">
+    <a class="cta" href="https://buy.stripe.com/test_14AbIV7A01JE3bZ29vf7i00" target="_blank" rel="noopener">Faire mon audit — 19 €</a>
+    <div class="cta-note">Paiement unique. Résultat envoyé par email sous 24h.</div>
+  </div>
+
+  <footer>
+    Fantômes — [Ta raison sociale, à compléter] · <a href="mailto:charlesleroy58@gmail.com">charlesleroy58@gmail.com</a>
+  </footer>
+
+</div>
+
+</body>
+</html>
